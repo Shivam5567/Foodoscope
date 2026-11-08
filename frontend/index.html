@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mise — cook what you have</title>
+<style>
+  :root{
+    --cream:#FBF7F0; --ink:#16181D; --saffron:#D9622B; --green:#1F4B3F;
+    --muted:#7A7167; --line:#E7DFD3; --card:#FFFFFF; --soft:#F3ECE1;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  header{
+    padding:22px 28px; display:flex; align-items:center; gap:14px;
+    border-bottom:1px solid var(--line); background:var(--cream);
+    position:sticky; top:0; z-index:10;
+  }
+  .mark{
+    width:38px;height:38px;border-radius:11px;background:var(--ink);color:var(--cream);
+    display:grid;place-items:center;font-weight:700;font-size:17px;letter-spacing:-.5px;
+  }
+  .brand{font-weight:700;font-size:19px;letter-spacing:-.4px}
+  .brand span{color:var(--saffron)}
+  .tag{color:var(--muted);font-size:13px;margin-left:auto;text-align:right;max-width:44%}
+  main{display:grid;grid-template-columns:minmax(320px,420px) 1fr;gap:28px;padding:28px;max-width:1280px;margin:0 auto}
+  @media(max-width:900px){main{grid-template-columns:1fr;padding:16px;gap:20px}header{padding:16px}.tag{display:none}}
+
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin:0 0 14px;font-weight:600}
+
+  .drop{
+    border:1.5px dashed #D8CDBC;border-radius:14px;padding:26px 18px;text-align:center;
+    cursor:pointer;transition:.15s;background:var(--soft);
+  }
+  .drop:hover{border-color:var(--saffron);background:#FBF1E7}
+  .drop.busy{opacity:.6;pointer-events:none}
+  .drop strong{display:block;font-size:15px;margin-bottom:5px}
+  .drop small{color:var(--muted);font-size:12.5px}
+  #preview{width:100%;border-radius:12px;margin-top:12px;display:none;object-fit:cover;max-height:230px}
+  input[type=file]{display:none}
+
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+  .chip{
+    background:var(--soft);border:1px solid var(--line);border-radius:999px;
+    padding:6px 9px 6px 12px;font-size:13px;display:flex;align-items:center;gap:7px;
+  }
+  .chip b{font-weight:600}
+  .chip i{font-style:normal;color:var(--muted);font-size:11px}
+  .chip button{
+    border:0;background:none;color:var(--muted);cursor:pointer;font-size:15px;
+    line-height:1;padding:0 2px;
+  }
+  .chip button:hover{color:var(--saffron)}
+  .addrow{display:flex;gap:8px;margin-top:12px}
+  .addrow input{
+    flex:1;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:13.5px;
+    background:var(--cream);color:var(--ink);outline:none;
+  }
+  .addrow input:focus{border-color:var(--saffron)}
+  .btn{
+    border:0;border-radius:10px;padding:9px 15px;font-size:13.5px;font-weight:600;cursor:pointer;
+    background:var(--ink);color:var(--cream);
+  }
+  .btn.accent{background:var(--saffron)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .btn.wide{width:100%;margin-top:16px;padding:13px}
+
+  .row{display:flex;gap:10px;margin-top:14px}
+  .field{flex:1}
+  .field label{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:6px;font-weight:600}
+  .field select,.field input[type=range]{width:100%}
+  .field select{
+    border:1px solid var(--line);border-radius:10px;padding:9px;font-size:13px;
+    background:var(--cream);color:var(--ink);
+  }
+  .rangelabel{font-size:12.5px;color:var(--muted);margin-top:4px}
+
+  .empty{
+    border:1px solid var(--line);border-radius:18px;padding:56px 28px;text-align:center;
+    color:var(--muted);background:var(--card);
+  }
+  .empty strong{display:block;color:var(--ink);font-size:16px;margin-bottom:8px}
+
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-bottom:14px;
+  }
+  .card h3{margin:0 0 3px;font-size:17.5px;letter-spacing:-.3px}
+  .meta{color:var(--muted);font-size:12.5px;margin-bottom:13px}
+  .scorewrap{display:flex;align-items:center;gap:14px}
+  .bigscore{
+    font-size:30px;font-weight:700;letter-spacing:-1px;color:var(--green);min-width:74px;
+  }
+  .bigscore small{font-size:12px;font-weight:600;color:var(--muted);display:block;letter-spacing:0}
+  .bars{flex:1}
+  .bar{display:flex;align-items:center;gap:9px;margin-bottom:5px;font-size:11.5px;color:var(--muted)}
+  .bar span:first-child{width:64px;flex-shrink:0}
+  .track{flex:1;height:5px;background:var(--soft);border-radius:99px;overflow:hidden}
+  .fill{height:100%;border-radius:99px;background:var(--saffron)}
+  .fill.g{background:var(--green)}
+  .fill.m{background:#B9A88F}
+
+  .ingline{font-size:13px;color:var(--muted);margin-top:12px;line-height:1.55}
+  .ingline b{color:var(--ink);font-weight:600}
+  .have{color:var(--green)}
+  .gap{color:var(--saffron)}
+
+  .unlock{
+    margin-top:13px;background:#FBF1E7;border:1px solid #F0DCC8;border-radius:12px;
+    padding:11px 13px;font-size:13px;line-height:1.5;
+  }
+  .unlock b{color:var(--saffron)}
+  .unlock .sub{margin-top:6px;font-size:12.5px;color:var(--muted)}
+  .unlock button{
+    border:0;background:none;color:var(--saffron);font-size:12.5px;font-weight:600;
+    cursor:pointer;padding:0;text-decoration:underline;
+  }
+  .steps{margin-top:12px;font-size:13px;line-height:1.6;display:none;border-top:1px solid var(--line);padding-top:12px}
+  .steps ol{margin:6px 0 0;padding-left:20px}
+  .steps li{margin-bottom:6px}
+  .src{font-size:11.5px;color:var(--muted);margin-top:6px}
+  .toast{
+    position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+    background:var(--ink);color:var(--cream);padding:11px 18px;border-radius:10px;
+    font-size:13px;opacity:0;transition:.25s;pointer-events:none;z-index:50;
+  }
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <div class="mark">M</div>
+  <div>
+    <div class="brand">Mise<span>.</span></div>
+  </div>
+  <div class="tag">Point at what you have. Get a dish that tastes right — not just one that matches.</div>
+</header>
+
+<main>
+  <section>
+    <div class="panel">
+      <h2>1 · Your counter</h2>
+      <div class="drop" id="drop">
+        <strong>Take a photo of your ingredients</strong>
+        <small>or click to upload — JPG / PNG</small>
+      </div>
+      <input type="file" id="file" accept="image/*" capture="environment" />
+      <img id="preview" alt="your ingredients" />
+      <div class="chips" id="chips"></div>
+      <div class="addrow">
+        <input id="manual" placeholder="add an ingredient…" />
+        <button class="btn" id="addBtn">Add</button>
+      </div>
+
+      <h2 style="margin-top:22px">2 · Constraints</h2>
+      <div class="row">
+        <div class="field">
+          <label for="diet">Diet</label>
+          <select id="diet">
+            <option value="any">Anything</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="non-vegetarian">Non-vegetarian</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="time">Time I have</label>
+          <input type="range" id="time" min="10" max="120" step="5" value="45" />
+          <div class="rangelabel"><span id="timeVal">45</span> minutes</div>
+        </div>
+      </div>
+      <button class="btn accent wide" id="go">Find what I can cook</button>
+      <div class="src" id="status"></div>
+    </div>
+  </section>
+
+  <section id="results">
+    <div class="empty">
+      <strong>Nothing on the stove yet</strong>
+      Snap a photo, confirm what Mise sees, and you'll get dishes ranked by how much you already own — and by whether the flavours actually work together.
+    </div>
+  </section>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const state = { ingredients: [], recipes: [] };
+const $ = (id) => document.getElementById(id);
+
+function toast(msg){
+  const t = $('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('show'), 2600);
+}
+
+function renderChips(){
+  $('chips').innerHTML = state.ingredients.map((ing,i)=>`
+    <span class="chip">
+      <b>${ing.name}</b>
+      ${ing.confidence ? `<i>${Math.round(ing.confidence*100)}%</i>` : ''}
+      <button title="remove" data-i="${i}">×</button>
+    </span>`).join('');
+  $('chips').querySelectorAll('button').forEach(b=>{
+    b.onclick = () => { state.ingredients.splice(+b.dataset.i,1); renderChips(); };
+  });
+}
+
+$('drop').onclick = () => $('file').click();
+$('file').onchange = async (e) => {
+  const f = e.target.files[0]; if(!f) return;
+  $('preview').src = URL.createObjectURL(f); $('preview').style.display='block';
+  $('drop').classList.add('busy');
+  $('drop').querySelector('strong').textContent = 'Reading your counter…';
+  try{
+    const fd = new FormData(); fd.append('image', f);
+    const r = await fetch('/api/scan', { method:'POST', body: fd });
+    const data = await r.json();
+    state.ingredients = data.ingredients || [];
+    renderChips();
+    $('status').textContent = data.notes || `Detected via ${data.provider}. Confirm or fix the list above.`;
+    if(!state.ingredients.length) toast('Could not read the photo — add items manually');
+  }catch(err){
+    toast('Scan failed — add ingredients manually');
+  }finally{
+    $('drop').classList.remove('busy');
+    $('drop').querySelector('strong').textContent = 'Take a photo of your ingredients';
+  }
+};
+
+$('addBtn').onclick = addManual;
+$('manual').onkeydown = (e)=>{ if(e.key==='Enter') addManual(); };
+function addManual(){
+  const v = $('manual').value.trim().toLowerCase();
+  if(!v) return;
+  if(!state.ingredients.some(i=>i.name===v)) state.ingredients.push({name:v, confidence:0});
+  $('manual').value=''; renderChips();
+}
+
+$('time').oninput = () => $('timeVal').textContent = $('time').value;
+
+$('go').onclick = async () => {
+  if(!state.ingredients.length){ toast('Add at least one ingredient'); return; }
+  $('go').disabled = true; $('go').textContent = 'Thinking…';
+  try{
+    const r = await fetch('/api/recommend', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        ingredients: state.ingredients.map(i=>i.name),
+        minutes: +$('time').value,
+        diet: $('diet').value,
+        top_k: 6
+      })
+    });
+    const data = await r.json();
+    state.recipes = data.recipes || [];
+    renderResults(data);
+  }catch(err){
+    toast('Something broke — try again');
+  }finally{
+    $('go').disabled = false; $('go').textContent = 'Find what I can cook';
+  }
+};
+
+function bar(label, val, cls){
+  return `<div class="bar"><span>${label}</span>
+    <div class="track"><div class="fill ${cls}" style="width:${Math.round(val*100)}%"></div></div></div>`;
+}
+
+function renderResults(data){
+  if(!state.recipes.length){
+    $('results').innerHTML = `<div class="empty"><strong>No match yet</strong>
+      Try adding a staple or two — a grain, a vegetable, something sour.</div>`;
+    return;
+  }
+  const srcNote = data.source === 'recipedb'
+    ? 'Recipes from RecipeDB · ranked with FlavorDB'
+    : 'Demo dataset (API not reachable) · ranking logic is identical';
+
+  $('results').innerHTML = state.recipes.map((r,i)=>`
+    <div class="card">
+      <h3>${i+1}. ${r.title}</h3>
+      <div class="meta">
+        ${r.cuisine ? r.cuisine + ' · ' : ''}${r.minutes ? r.minutes + ' min · ' : ''}${r.diet || ''}
+        ${r.constraints && r.constraints.length ? ' · ' + r.constraints.join(' · ') : ''}
+      </div>
+      <div class="scorewrap">
+        <div class="bigscore">${Math.round(r.score)}<small>match</small></div>
+        <div class="bars">
+          ${bar('you own', r.coverage, 'g')}
+          ${bar('flavour', r.flavour, '')}
+          ${bar('few gaps', r.missing_fit, 'm')}
+        </div>
+      </div>
+      <div class="ingline">
+        <b>You have:</b> <span class="have">${r.matched.join(', ') || '—'}</span>
+        ${r.missing.length ? `<br><b>Missing:</b> <span class="gap">${r.missing.join(', ')}</span>` : '<br><b>Nothing missing.</b>'}
+      </div>
+      ${r.unlock ? `<div class="unlock">
+        <b>One thing to add:</b> ${r.unlock.ingredient} — ${r.unlock.why}.
+        <div class="sub">Not available? <button data-sub="${r.unlock.ingredient}">Find a flavour-match substitute</button></div>
+        <div class="sub" id="sub-${i}"></div>
+      </div>` : ''}
+      <div class="steps" id="steps-${i}"></div>
+      <div class="src" style="margin-top:10px">
+        <a href="#" data-steps="${r.id}" data-idx="${i}" style="color:var(--green)">Show cooking steps →</a>
+      </div>
+    </div>`).join('') + `<div class="src" style="text-align:center;padding:6px">${srcNote}</div>`;
+
+  $('results').querySelectorAll('[data-sub]').forEach(btn=>{
+    btn.onclick = async (e)=>{
+      e.preventDefault();
+      const ing = btn.dataset.sub;
+      const box = btn.closest('.unlock').querySelector('.sub:last-child');
+      box.textContent = 'Looking up flavour molecules…';
+      const r = await fetch('/api/substitute?ingredient=' + encodeURIComponent(ing));
+      const d = await r.json();
+      box.textContent = d.substitutes.length
+        ? `Try: ${d.substitutes.map(s=>s.name).join(', ')}`
+        : 'No close flavour match found — use it or skip it.';
+    };
+  });
+
+  $('results').querySelectorAll('[data-steps]').forEach(a=>{
+    a.onclick = async (e)=>{
+      e.preventDefault();
+      const idx = a.dataset.idx, id = a.dataset.steps;
+      const box = $('steps-' + idx);
+      if(box.style.display === 'block'){ box.style.display='none'; return; }
+      box.style.display = 'block'; box.innerHTML = 'Loading…';
+      const r = await fetch('/api/instructions/' + encodeURIComponent(id));
+      const d = await r.json();
+      box.innerHTML = d.steps && d.steps.length
+        ? '<b>Method</b><ol>' + d.steps.map(s=>`<li>${s}</li>`).join('') + '</ol>'
+        : 'No step-by-step data for this one.';
+    };
+  });
+}
+</script>
+</body>
+</html>

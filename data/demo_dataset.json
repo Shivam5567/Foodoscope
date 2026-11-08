@@ -1,0 +1,687 @@
+{
+  "demo_pantry": [
+    "tomato",
+    "onion",
+    "yogurt",
+    "mint",
+    "basmati rice",
+    "ginger",
+    "garlic",
+    "green chilli",
+    "coriander",
+    "ghee"
+  ],
+  "flavor_pairs": {
+    "tomato": [
+      "onion",
+      "garlic",
+      "basil",
+      "cheese",
+      "green chilli",
+      "oregano",
+      "olive oil",
+      "cumin"
+    ],
+    "onion": [
+      "garlic",
+      "tomato",
+      "ginger",
+      "cumin",
+      "coriander",
+      "green chilli",
+      "turmeric"
+    ],
+    "garlic": [
+      "onion",
+      "ginger",
+      "tomato",
+      "cumin",
+      "coriander",
+      "green chilli",
+      "mint",
+      "paneer"
+    ],
+    "ginger": [
+      "garlic",
+      "onion",
+      "green chilli",
+      "coriander",
+      "cumin",
+      "mint",
+      "yogurt",
+      "chicken"
+    ],
+    "yogurt": [
+      "mint",
+      "coriander",
+      "cumin",
+      "ginger",
+      "garlic",
+      "cardamom",
+      "mango",
+      "basmati rice"
+    ],
+    "mint": [
+      "coriander",
+      "yogurt",
+      "ginger",
+      "green chilli",
+      "lemon",
+      "basmati rice"
+    ],
+    "basmati rice": [
+      "cardamom",
+      "saffron",
+      "ghee",
+      "cumin",
+      "bay leaf",
+      "yogurt",
+      "mint"
+    ],
+    "chicken": [
+      "garlic",
+      "ginger",
+      "yogurt",
+      "onion",
+      "tomato",
+      "green chilli",
+      "coriander",
+      "cumin",
+      "cardamom",
+      "mint"
+    ],
+    "cardamom": [
+      "cinnamon",
+      "clove",
+      "saffron",
+      "bay leaf",
+      "basmati rice",
+      "milk",
+      "ghee"
+    ],
+    "cinnamon": [
+      "clove",
+      "cardamom",
+      "bay leaf",
+      "onion",
+      "tomato"
+    ],
+    "cumin": [
+      "coriander",
+      "green chilli",
+      "garlic",
+      "onion",
+      "yogurt",
+      "turmeric",
+      "potato"
+    ],
+    "coriander": [
+      "cumin",
+      "mint",
+      "green chilli",
+      "garlic",
+      "lemon",
+      "onion"
+    ],
+    "green chilli": [
+      "garlic",
+      "cumin",
+      "tomato",
+      "onion",
+      "ginger",
+      "coconut"
+    ],
+    "lemon": [
+      "mint",
+      "coriander",
+      "green chilli",
+      "garlic",
+      "prawn"
+    ],
+    "paneer": [
+      "cardamom",
+      "tomato",
+      "cream",
+      "onion",
+      "cashew",
+      "spinach",
+      "garlic"
+    ],
+    "potato": [
+      "cumin",
+      "green chilli",
+      "onion",
+      "coriander",
+      "garlic",
+      "cauliflower"
+    ],
+    "cauliflower": [
+      "cumin",
+      "potato",
+      "ginger",
+      "green chilli",
+      "coriander",
+      "turmeric"
+    ],
+    "spinach": [
+      "garlic",
+      "onion",
+      "ginger",
+      "tomato",
+      "paneer",
+      "cream",
+      "cumin"
+    ],
+    "prawn": [
+      "garlic",
+      "lemon",
+      "green chilli",
+      "coconut",
+      "coriander"
+    ],
+    "coconut": [
+      "green chilli",
+      "coriander",
+      "curry leaves",
+      "mustard seeds",
+      "prawn",
+      "tamarind"
+    ],
+    "curry leaves": [
+      "mustard seeds",
+      "coconut",
+      "green chilli",
+      "garlic",
+      "onion"
+    ],
+    "mustard seeds": [
+      "curry leaves",
+      "coconut",
+      "green chilli",
+      "turmeric"
+    ],
+    "turmeric": [
+      "cumin",
+      "coriander",
+      "green chilli",
+      "ginger",
+      "garlic",
+      "potato"
+    ],
+    "saffron": [
+      "cardamom",
+      "milk",
+      "basmati rice",
+      "cinnamon",
+      "ghee"
+    ],
+    "ghee": [
+      "cardamom",
+      "cumin",
+      "basmati rice",
+      "saffron",
+      "bay leaf"
+    ],
+    "bay leaf": [
+      "cardamom",
+      "cinnamon",
+      "clove",
+      "basmati rice"
+    ],
+    "clove": [
+      "cinnamon",
+      "cardamom",
+      "bay leaf"
+    ],
+    "mango": [
+      "green chilli",
+      "coconut",
+      "lemon",
+      "yogurt",
+      "cardamom"
+    ],
+    "eggplant": [
+      "tomato",
+      "onion",
+      "garlic",
+      "cumin",
+      "tamarind"
+    ],
+    "tamarind": [
+      "green chilli",
+      "coconut",
+      "curry leaves",
+      "mustard seeds"
+    ],
+    "cashew": [
+      "paneer",
+      "cream",
+      "cardamom",
+      "onion"
+    ],
+    "cream": [
+      "paneer",
+      "cashew",
+      "cardamom",
+      "spinach",
+      "tomato"
+    ],
+    "egg": [
+      "onion",
+      "tomato",
+      "green chilli",
+      "coriander",
+      "turmeric"
+    ],
+    "basil": [
+      "tomato",
+      "garlic",
+      "cheese",
+      "olive oil",
+      "green chilli"
+    ],
+    "cheese": [
+      "tomato",
+      "basil",
+      "olive oil",
+      "oregano"
+    ],
+    "pasta": [
+      "tomato",
+      "basil",
+      "garlic",
+      "olive oil",
+      "cheese"
+    ],
+    "cucumber": [
+      "tomato",
+      "yogurt",
+      "mint",
+      "onion",
+      "lemon"
+    ],
+    "carrot": [
+      "cumin",
+      "coriander",
+      "ginger",
+      "green chilli",
+      "potato"
+    ],
+    "toor dal": [
+      "onion",
+      "tomato",
+      "garlic",
+      "cumin",
+      "turmeric",
+      "ghee"
+    ]
+  },
+  "recipes": [
+    {
+      "Recipe_id": "demo-001",
+      "Recipe_title": "Hyderabadi Chicken Dum Biryani",
+      "cuisine": "Hyderabadi",
+      "region": "Indian",
+      "total_time": "90",
+      "diet": "non-vegetarian",
+      "utensils": "pot frypan",
+      "ingredients": [
+        "basmati rice",
+        "chicken",
+        "yogurt",
+        "onion",
+        "mint",
+        "coriander",
+        "ginger",
+        "garlic",
+        "green chilli",
+        "saffron",
+        "ghee",
+        "cardamom",
+        "cinnamon",
+        "bay leaf",
+        "cumin",
+        "lemon",
+        "salt"
+      ],
+      "instructions": [
+        "Marinate chicken in yogurt, ginger-garlic paste, chilli, mint, coriander and half the fried onions for 4 hours.",
+        "Soak basmati rice for 30 minutes; parboil with cardamom, cinnamon, bay leaf and salt until 70% done.",
+        "Layer marinated chicken, rice, saffron milk, ghee and fried onions in a heavy pot.",
+        "Seal the pot with dough and cook on low dum for 25 minutes.",
+        "Rest 10 minutes, open, and fold gently before serving."
+      ]
+    },
+    {
+      "Recipe_id": "demo-002",
+      "Recipe_title": "Hyderabadi Vegetable Dum Biryani",
+      "cuisine": "Hyderabadi",
+      "region": "Indian",
+      "total_time": "75",
+      "diet": "vegetarian",
+      "utensils": "pot",
+      "ingredients": [
+        "basmati rice",
+        "yogurt",
+        "onion",
+        "mint",
+        "coriander",
+        "carrot",
+        "potato",
+        "cauliflower",
+        "saffron",
+        "ghee",
+        "cardamom",
+        "cinnamon",
+        "green chilli",
+        "ginger",
+        "garlic",
+        "salt"
+      ],
+      "instructions": [
+        "Parboil soaked basmati rice with whole spices and salt.",
+        "Sauté vegetables with ginger, garlic and chilli; fold into whisked yogurt with mint and coriander.",
+        "Layer rice over the vegetables, add saffron milk and ghee.",
+        "Dum on low heat for 20 minutes, rest, then fold."
+      ]
+    },
+    {
+      "Recipe_id": "demo-003",
+      "Recipe_title": "Paneer Butter Masala",
+      "cuisine": "North Indian",
+      "region": "Indian",
+      "total_time": "35",
+      "diet": "vegetarian",
+      "utensils": "frypan blender",
+      "ingredients": [
+        "paneer",
+        "tomato",
+        "onion",
+        "cashew",
+        "cream",
+        "butter",
+        "garlic",
+        "ginger",
+        "green chilli",
+        "cardamom",
+        "cumin",
+        "salt"
+      ],
+      "instructions": [
+        "Simmer tomato, onion, cashew, ginger and garlic; cool and blend smooth.",
+        "Bloom cumin and cardamom in butter, add the purée and cook until it darkens.",
+        "Stir in cream, then paneer cubes; simmer 8 minutes."
+      ]
+    },
+    {
+      "Recipe_id": "demo-004",
+      "Recipe_title": "Dal Tadka",
+      "cuisine": "North Indian",
+      "region": "Indian",
+      "total_time": "30",
+      "diet": "vegetarian",
+      "utensils": "pressure cooker frypan",
+      "ingredients": [
+        "toor dal",
+        "onion",
+        "tomato",
+        "garlic",
+        "cumin",
+        "turmeric",
+        "green chilli",
+        "ghee",
+        "coriander",
+        "salt"
+      ],
+      "instructions": [
+        "Pressure cook toor dal with turmeric and salt until soft.",
+        "Temper cumin, garlic, onion and chilli in ghee; add tomato and cook down.",
+        "Pour the tadka over the dal, finish with coriander."
+      ]
+    },
+    {
+      "Recipe_id": "demo-005",
+      "Recipe_title": "Aloo Gobi",
+      "cuisine": "Punjabi",
+      "region": "Indian",
+      "total_time": "25",
+      "diet": "vegan",
+      "utensils": "frypan",
+      "ingredients": [
+        "potato",
+        "cauliflower",
+        "onion",
+        "ginger",
+        "cumin",
+        "turmeric",
+        "green chilli",
+        "coriander",
+        "salt",
+        "oil"
+      ],
+      "instructions": [
+        "Bloom cumin in oil, add ginger and onion.",
+        "Add potato and cauliflower with turmeric and salt; cover and cook 15 minutes.",
+        "Finish with green chilli and coriander."
+      ]
+    },
+    {
+      "Recipe_id": "demo-006",
+      "Recipe_title": "Palak Paneer",
+      "cuisine": "North Indian",
+      "region": "Indian",
+      "total_time": "30",
+      "diet": "vegetarian",
+      "utensils": "frypan blender",
+      "ingredients": [
+        "spinach",
+        "paneer",
+        "onion",
+        "garlic",
+        "ginger",
+        "tomato",
+        "cream",
+        "cumin",
+        "green chilli",
+        "salt"
+      ],
+      "instructions": [
+        "Blanch spinach and blend to a purée.",
+        "Sauté cumin, garlic, ginger, onion and tomato; add the purée.",
+        "Fold in paneer and cream, simmer 5 minutes."
+      ]
+    },
+    {
+      "Recipe_id": "demo-007",
+      "Recipe_title": "Chicken Chettinad",
+      "cuisine": "Tamil Nadu",
+      "region": "Indian",
+      "total_time": "50",
+      "diet": "non-vegetarian",
+      "utensils": "frypan",
+      "ingredients": [
+        "chicken",
+        "coconut",
+        "curry leaves",
+        "mustard seeds",
+        "green chilli",
+        "coriander",
+        "cumin",
+        "onion",
+        "tomato",
+        "ginger",
+        "garlic",
+        "turmeric",
+        "salt"
+      ],
+      "instructions": [
+        "Dry roast coconut, cumin, coriander and chilli; grind to a masala.",
+        "Temper mustard seeds and curry leaves, brown onion, ginger and garlic.",
+        "Add chicken and tomato, then the ground masala; simmer until thick."
+      ]
+    },
+    {
+      "Recipe_id": "demo-008",
+      "Recipe_title": "Curd Rice",
+      "cuisine": "South Indian",
+      "region": "Indian",
+      "total_time": "20",
+      "diet": "vegetarian",
+      "utensils": "pot frypan",
+      "ingredients": [
+        "basmati rice",
+        "yogurt",
+        "curry leaves",
+        "mustard seeds",
+        "ginger",
+        "green chilli",
+        "ghee",
+        "salt"
+      ],
+      "instructions": [
+        "Cook rice until soft and cool slightly.",
+        "Fold in whisked yogurt, salt and ginger.",
+        "Temper mustard seeds, curry leaves and chilli in ghee and pour over."
+      ]
+    },
+    {
+      "Recipe_id": "demo-009",
+      "Recipe_title": "Prawn Balchão",
+      "cuisine": "Goan",
+      "region": "Indian",
+      "total_time": "35",
+      "diet": "non-vegetarian",
+      "utensils": "frypan",
+      "ingredients": [
+        "prawn",
+        "coconut",
+        "green chilli",
+        "onion",
+        "garlic",
+        "tomato",
+        "lemon",
+        "salt",
+        "oil"
+      ],
+      "instructions": [
+        "Sauté onion and garlic, add chilli and tomato.",
+        "Add prawns and cook 5 minutes.",
+        "Finish with coconut and lemon."
+      ]
+    },
+    {
+      "Recipe_id": "demo-010",
+      "Recipe_title": "Masala Omelette",
+      "cuisine": "Indian",
+      "region": "Indian",
+      "total_time": "10",
+      "diet": "non-vegetarian",
+      "utensils": "frypan",
+      "ingredients": [
+        "egg",
+        "onion",
+        "tomato",
+        "green chilli",
+        "coriander",
+        "turmeric",
+        "salt",
+        "oil"
+      ],
+      "instructions": [
+        "Whisk eggs with turmeric and salt.",
+        "Fold in onion, tomato, chilli and coriander.",
+        "Cook in a hot pan until just set."
+      ]
+    },
+    {
+      "Recipe_id": "demo-011",
+      "Recipe_title": "Mango Lassi",
+      "cuisine": "Punjabi",
+      "region": "Indian",
+      "total_time": "5",
+      "diet": "vegetarian",
+      "utensils": "blender",
+      "ingredients": [
+        "mango",
+        "yogurt",
+        "milk",
+        "cardamom",
+        "sugar"
+      ],
+      "instructions": [
+        "Blend mango, yogurt, milk, cardamom and sugar until smooth.",
+        "Chill and serve."
+      ]
+    },
+    {
+      "Recipe_id": "demo-012",
+      "Recipe_title": "Tomato Basil Pasta",
+      "cuisine": "Italian",
+      "region": "European",
+      "total_time": "25",
+      "diet": "vegetarian",
+      "utensils": "pot frypan",
+      "ingredients": [
+        "pasta",
+        "tomato",
+        "basil",
+        "garlic",
+        "olive oil",
+        "cheese",
+        "salt"
+      ],
+      "instructions": [
+        "Boil pasta in salted water.",
+        "Sauté garlic in olive oil, add tomato and reduce.",
+        "Toss pasta through the sauce with basil and cheese."
+      ]
+    },
+    {
+      "Recipe_id": "demo-013",
+      "Recipe_title": "Greek Salad",
+      "cuisine": "Greek",
+      "region": "European",
+      "total_time": "10",
+      "diet": "vegetarian",
+      "utensils": "none",
+      "ingredients": [
+        "cucumber",
+        "tomato",
+        "cheese",
+        "olive oil",
+        "oregano",
+        "onion",
+        "salt"
+      ],
+      "instructions": [
+        "Chop cucumber, tomato and onion.",
+        "Dress with olive oil, oregano and salt.",
+        "Top with cheese."
+      ]
+    },
+    {
+      "Recipe_id": "demo-014",
+      "Recipe_title": "Thai Green Curry",
+      "cuisine": "Thai",
+      "region": "Asian",
+      "total_time": "30",
+      "diet": "non-vegetarian",
+      "utensils": "frypan",
+      "ingredients": [
+        "coconut",
+        "chicken",
+        "green chilli",
+        "basil",
+        "ginger",
+        "garlic",
+        "lemon",
+        "salt"
+      ],
+      "instructions": [
+        "Pound chilli, ginger, garlic and basil into a paste.",
+        "Fry the paste, add coconut milk and chicken.",
+        "Simmer 15 minutes and finish with lemon."
+      ]
+    }
+  ]
+}

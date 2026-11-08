@@ -1,0 +1,19 @@
+INFO:     Will watch for changes in these directories: ['C:\\Users\\shiva\\Downloads\\mise-prototype\\mise']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [11120] using WatchFiles
+INFO:     Started server process [21920]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50682 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50683 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50684 - "POST /api/recommend HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50687 - "GET /api/substitute?ingredient=onion HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61215 - "POST /api/scan HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61250 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59002 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59002 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57458 - "POST /api/scan HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56101 - "POST /api/recommend HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64193 - "GET /api/substitute?ingredient=coconut HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64554 - "GET /api/instructions/demo-014 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53508 - "GET /api/instructions/demo-014 HTTP/1.1" 200 OK
